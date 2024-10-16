@@ -19,9 +19,7 @@ yaml_timestamp = os.path.abspath(os.path.join(project_dir, 'active_configs' + os
 
 model_dir = os.path.join(project_dir,'model_data')
 trained_model_dir = os.path.join(project_dir,'trained_models')
-smpl_model_dir = os.path.join(os.path.expanduser("~"),'.romp')
-if not os.path.exists(smpl_model_dir):
-    smpl_model_dir = os.path.join(model_dir,'smpl_models')
+smpl_model_dir = '/mnt/JeongHwan/3D/ROMP/model_data/parameters/'
 
 print("yaml_timestamp ", yaml_timestamp)
 
@@ -186,9 +184,9 @@ def parse_args(input_args=None):
     #smpl_group.add_argument('--smpl_J_reg_h37m_path',type = str,default = os.path.join(model_dir, 'parameters', 'J_regressor_h36m.npy'),help = 'SMPL regressor for 17 joints from H36M datasets')
     #smpl_group.add_argument('--smpl_J_reg_extra_path',type = str,default = os.path.join(model_dir, 'parameters', 'J_regressor_extra.npy'),help = 'SMPL regressor for 9 extra joints from different datasets')
     
-    smpl_group.add_argument('--smpl_model_path',type = str,default = os.path.join(smpl_model_dir,'SMPL_NEUTRAL.pth'),help = 'smpl model path')
-    smpl_group.add_argument('--smpla_model_path',type = str,default = os.path.join(smpl_model_dir,'SMPLA_NEUTRAL.pth'),help = 'smpl model path') #SMPLA_FEMALE gets better MPJPE #smpla_packed_info.pth
-    smpl_group.add_argument('--smil_model_path',type = str,default = os.path.join(smpl_model_dir,'smil_packed_info.pth'),help = 'smpl model path')
+    smpl_group.add_argument('--smpl_model_path',type = str,default = os.path.join(smpl_model_dir,'SMPL_NEUTRAL.pkl'),help = 'smpl model path')
+    smpl_group.add_argument('--smpla_model_path',type = str,default = os.path.join(smpl_model_dir,'SMPLA_NEUTRAL.pkl'),help = 'smpl model path') #SMPLA_FEMALE gets better MPJPE #smpla_packed_info.pkl
+    smpl_group.add_argument('--smil_model_path',type = str,default = os.path.join(smpl_model_dir,'smil_packed_info.pkl'),help = 'smpl model path')
     smpl_group.add_argument('--smpl_prior_path',type = str,default = os.path.join(model_dir,'parameters','gmm_08.pkl'),help = 'smpl model path')
 
     smpl_group.add_argument('--smpl_uvmap',type = str,default = os.path.join(model_dir, 'parameters', 'smpl_vt_ft.npz'),help = 'smpl UV Map coordinates for each vertice')
